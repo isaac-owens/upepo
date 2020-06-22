@@ -17,7 +17,11 @@ console.log('Hello from Webpack UPEPO!');
 var constraints = { audio: false, video: { facingMode: "user" } };
 navigator.mediaDevices.getUserMedia(constraints)
 .then(function(stream) {
-
+  var webcam = document.getElementById('webcam');
+  webcam.srcObject = stream;
+  video.onloadedmetadata = function(e) {
+    video.play();
+  };
 })
 .catch(function(err) {
   console.log("Uh-oh! Looks like something went terribly wrong.");
