@@ -1,0 +1,12 @@
+#webcam {
+  position: relative; }
+
+#test-area {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 200px;
+  left: 100px;
+  background-color: blue; }
+
+/*# sourceMappingURL=style.css.map */

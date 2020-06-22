@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UPEPO</title>
+  <link rel="stylesheet" href="./css/style.css">
   <script src="./bundle.js"></script>
+  <title>UPEPO</title>
 </head>
 <body>
   <h1>Hello from Upepo!</h1>
   <!-- autoplay keeps the video from pausing on the first frame received -->
   <video id="webcam" autoplay playsinline width="640" height="480"></video>
-  <!-- draws the stream received so it can but used for motion detection -->
-  <canvas id="canvas" width="640" height="480"></canvas>
-   <!-- realtime display to show what's happening during motion detection -->
-   <canvas id="canvas-blend" width="640" height="480"></canvas>
+  <div id="test-area"></div>
+  <!-- draws the stream received so it can be used for motion detection -->
+  <canvas id="canvas" width="640" height="480" style="border: 5px solid red;"></canvas>
+  <!-- realtime display to show what's happening during motion detection -->
+  <canvas id="canvas-blend" width="640" height="480" style="border: 5px solid green;"></canvas>
 </body>
 </html>
