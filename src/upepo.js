@@ -19,11 +19,11 @@ navigator.mediaDevices.getUserMedia(constraints)
 .then(function(stream) {
   var webcam = document.getElementById('webcam');
   webcam.srcObject = stream;
-  video.onloadedmetadata = function(e) {
-    video.play();
+  webcam.onloadedmetadata = function(e) {
+    webcam.play();
   };
 })
 .catch(function(err) {
-  console.log("Uh-oh! Looks like something went terribly wrong.");
+  console.log("Uh-oh! Looks like something went wrong.");
   console.log(err);
 })
