@@ -54,5 +54,27 @@ function difference(target, pixelArray1, pixelArray2) {
 }
 
 function blend() {
-  
+  let canvasWidth = canvas.width;
+  let canvasHeight = canvas.height;
+
+  // get webcam image data/ pixel array
+
+  // .getImageData returns ImageData object (array) that copies pixel data 
+  // for specified rectangle of canvas context
+  let canvasData = context.getImageData(0, 0, canvasWidth, canvasHeight);
+
+  // creates an image if no image exists (i.e. first frame of stream)
+  if (!lastImageData) lastImageData = context.getImageData(0, 0, width, height);
+
+  // create ImageData instance to get blended result
+  let blendedData = contextSource.createImageData(canvasWidth, canvasHeight);
+
+  // blend the images
+  difference(blendedData.data, canvasData.data, lastImageData.data);
+
+  // draw the result of the blend
+  contextBlended.putImageData(blendedData, 0, 0);
+
+  // save the current image
+  lastImageData = canvasData;
 }
