@@ -10,20 +10,20 @@ let contextSource = canvasSource.getContext('2d');
 let canvasBlended = document.getElementById('canvas-blended');
 let contextBlended = canvasBlended.getContext('2d');
 
-// reverse rendered video image so user's movement is mirrored
+// render reversed video image so user's movement is mirrored
 contextSource.translate(canvasSource.width, 0);
 contextSource.scale(-1, 1);
 
 // gains accesss to user's webcam
-
 var constraints = { audio: false, video: { facingMode: "user" } };
 navigator.mediaDevices.getUserMedia(constraints)
 .then(function(stream) {
   const webcam = document.getElementById('webcam');
   webcam.srcObject = stream;
   webcam.onloadedmetadata = function(e) {
+    // begin motion detection 
     startMotionDetection();
-    webcam.play();
+    // webcam.play();
   };
 })
 .catch(function(err) {
