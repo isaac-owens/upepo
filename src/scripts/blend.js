@@ -1,6 +1,6 @@
 let timeOut, lastImageData;
 
-let canvas = document.getElementById('canvas');
+let canvas = document.getElementById("canvas");
 let context = canvas.getContext('2d');
 
 let canvasBlended = document.getElementById('canvas-blended');
@@ -20,7 +20,7 @@ function update() {
 }
 
 function drawVideo() {
-  contextSource.drawImage(video, 0, 0, video.width, video.height);
+  context.drawImage(video, 0, 0, video.width, video.height);
 }
 
 // Ensures that the result of pixel subtraction is always positive. (~ Math.abs())
