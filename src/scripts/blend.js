@@ -6,6 +6,9 @@ let context = canvas.getContext('2d');
 let canvasBlended = document.getElementById('canvas-blended');
 let contextBlended = canvasBlended.getContext('2d');
 
+context.translate(canvas.width, 0);
+context.scale(-1, 1);
+
 /* 
 executed 60 times per second, calls functions to:
   draw webam stream onto canvas,
