@@ -1,21 +1,28 @@
 // any javascript code imported here will be bundled into bundle.js by Webpack
-console.log('Hello from Webpack UPEPO!');
+// console.log('Hello from Webpack UPEPO!');
 
-  let testAreaPos = [115, 240];
-  let timeOut, lastImageData;
+const webcam = document.getElementById('webcam');
+let timeOut, lastImageData;
 
-  let testArea = document.getElementById('test-area');
-  
-  let canvasBlended = document.getElementById("canvas-blended");
-  let contextBlended = canvasBlended.getContext("2d");
+let canvasSource = document.getElementById('canvas-source');
+let contextSource = canvasSource.getContext('2d');
 
+let canvasBlended = document.getElementById('canvas-blended');
+let contextBlended = canvasBlended.getContext('2d');
+
+// reverse rendered video image so user's movement is mirrored
+contextSource.translate(canvasSource.width, 0);
+contextSource.scale(-1, 1);
+
+// gains accesss to user's webcam
 
 var constraints = { audio: false, video: { facingMode: "user" } };
 navigator.mediaDevices.getUserMedia(constraints)
 .then(function(stream) {
-  var webcam = document.getElementById('webcam');
+  const webcam = document.getElementById('webcam');
   webcam.srcObject = stream;
   webcam.onloadedmetadata = function(e) {
+    startMotionDetection();
     webcam.play();
   };
 })
@@ -24,13 +31,9 @@ navigator.mediaDevices.getUserMedia(constraints)
   console.log(err);
 })
 
-
-/* 
-executed 60 times per second, calls functions to:
-  draw webam stream onto canvas,
-  blend the images,
-  detect the motion 
- */
+function startMotionDetection() {
+  update();
+}
 
 window.requestAnimFrame = (function () {
   return (
@@ -42,18 +45,18 @@ window.requestAnimFrame = (function () {
     function (callback) {
       window.setTimeout(callback, 1000 / 60);
     }
-  );
-})();
-
-function update() {
-  drawVideo();
-  blend();
-  checkArea();
-  requestAnimationFrame(update);
-}
+    );
+  })();
+  
+  function update() {
+    drawVideo();
+    // blend();
+    // checkArea();
+    requestAnimFrame(update);
+  }
 
 function drawVideo() {
-  context.drawImage(webcam, 0, 0, webcam.width, webcam.height);
+  contextSource.drawImage(webcam, 0, 0, webcam.width, webcam.height);
 }
 
 // Ensures that the result of pixel subtraction is always positive. (~ Math.abs())
