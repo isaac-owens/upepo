@@ -12,15 +12,13 @@
   -webkit-transform: rotateY(180deg);
   /* Safari and Chrome */
   -moz-transform: rotateY(180deg);
-  /* Firefox */ }
+  /* Firefox */
+  border: 10px solid blue; }
 
 #canvas-source {
-  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
-  min-width: 100%;
-  min-height: 100%;
   width: auto;
   height: auto;
   z-index: -100;

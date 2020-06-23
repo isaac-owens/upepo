@@ -1,16 +1,19 @@
 // any javascript code imported here will be bundled into bundle.js by Webpack
 // console.log('Hello from Webpack UPEPO!');
 
+// BLUE BOX
 const webcam = document.getElementById('webcam');
 let timeOut, lastImageData;
 
+// RED BOX
 let canvasSource = document.getElementById('canvas-source');
 let contextSource = canvasSource.getContext('2d');
 
+// GREEN BOX
 let canvasBlended = document.getElementById('canvas-blended');
 let contextBlended = canvasBlended.getContext('2d');
 
-// render reversed video image so user's movement is mirrored
+// render reversed video for mirror effect
 contextSource.translate(canvasSource.width, 0);
 contextSource.scale(-1, 1);
 
@@ -23,7 +26,6 @@ navigator.mediaDevices.getUserMedia(constraints)
   webcam.onloadedmetadata = function(e) {
     // begin motion detection 
     startMotionDetection();
-    // webcam.play();
   };
 })
 .catch(function(err) {
@@ -50,7 +52,7 @@ window.requestAnimFrame = (function () {
   
   function update() {
     drawVideo();
-    // blend();
+    blend();
     // checkArea();
     requestAnimFrame(update);
   }
@@ -93,21 +95,21 @@ function difference(target, pixelArray1, pixelArray2) {
 }
 
 function blend() {
-  let canvasWidth = canvas.width;
-  let canvasHeight = canvas.height;
+  let canvasWidth = canvasSource.width;
+  let canvasHeight = canvasSource.height;
 
   // ImageData = array of pixels
 
   // .getImageData returns ImageData object that copies pixel data
   // for specified rectangle of canvas context
-  let canvasData = context.getImageData(0, 0, canvasWidth, canvasHeight);
+  let canvasData = contextSource.getImageData(0, 0, canvasWidth, canvasHeight);
 
   // creates an image if no previous image exists (i.e. first frame of stream)
   if (!lastImageData)
-    lastImageData = context.getImageData(0, 0, canvasWidth, canvasHeight);
+    lastImageData = contextSource.getImageData(0, 0, canvasWidth, canvasHeight);
 
   // create ImageData instance to get blended result
-  let blendedData = context.createImageData(canvasWidth, canvasHeight);
+  let blendedData = contextSource.createImageData(canvasWidth, canvasHeight);
 
   // blend the images
   difference(blendedData.data, canvasData.data, lastImageData.data);
