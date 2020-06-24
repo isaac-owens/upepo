@@ -53,7 +53,7 @@ window.requestAnimFrame = (function () {
   function update() {
     drawVideo();
     blend();
-    // checkArea();
+    checkArea();
     requestAnimFrame(update);
   }
 
@@ -102,7 +102,7 @@ function blend() {
 
   // .getImageData returns ImageData object that copies pixel data
   // for specified rectangle of canvas context
-  let canvasData = contextSource.getImageData(0, 0, canvasWidth, canvasHeight);
+  let sourceData = contextSource.getImageData(0, 0, canvasWidth, canvasHeight);
 
   // creates an image if no previous image exists (i.e. first frame of stream)
   if (!lastImageData)
@@ -112,31 +112,43 @@ function blend() {
   let blendedData = contextSource.createImageData(canvasWidth, canvasHeight);
 
   // blend the images
-  difference(blendedData.data, canvasData.data, lastImageData.data);
+  difference(blendedData.data, sourceData.data, lastImageData.data);
 
   // draw the result of the blend
   contextBlended.putImageData(blendedData, 0, 0);
 
   // save the current image
-  lastImageData = canvasData;
+  lastImageData = sourceData;
 }
 
 function checkArea() {
   // still need to define properties of test area
   const test = document.getElementById('test-area');
+  window.test = test;
+
+  rect = test.getClientRects();
+  
+  // testArea = {
+  //   x: rect[0].x,
+  //   y: rect[0].y,
+  //   width: test.clientWidth,
+  //   height: test.clientHeight
+  // }
 
   testArea = {
-    x: test.x,
-    y: test.y,
-    width: test.width,
-    height: toString.height
+    x: 100,
+    y: 100,
+    width: 130,
+    height: 130   
   }
+
   let blendedData = contextBlended.getImageData(
     testArea.x,
     testArea.y,
     testArea.width,
     testArea.height
   );
+
 
   let i = 0;
   let average = 0;
@@ -151,12 +163,17 @@ function checkArea() {
       ) / 3;
 
       i++;
+  }
 
       // calculate average of test area color values
       average = Math.round(average / (blendedData.data.length * 0.25));
+      window.blendedData = blendedData;
+      window.average = average;
+      
       if (average > 10) {
         // over the limit means that a movement is detected
         console.log('Movement detected!')
       }
-  }
-}
+    }
+
+checkArea();
