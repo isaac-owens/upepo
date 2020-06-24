@@ -7,7 +7,7 @@
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -100;
+  z-index: 0;
   // reverse video image for mirror effect
   transform: rotateY(180deg);
   pointer-events: none;
@@ -25,23 +25,18 @@
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -100;
+  z-index: 20;
   transform: translateX(-50%) translateY(-50%);
   pointer-events: none;
   border: 5px solid red;
 }
 
-// .motion-cam {
-//   position: absolute;
-//   bottom: 0vh;
-//   left: 0;
-//   width: 30%;
-// }
-
 #canvas-blended {
+  // display: none;
   height: 100%;
   width: 100%;
   border: 5px solid green;
+  z-index: 0;
 }
 
 

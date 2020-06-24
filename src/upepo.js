@@ -128,19 +128,19 @@ function checkArea() {
 
   rect = test.getClientRects();
   
-  // testArea = {
-  //   x: rect[0].x,
-  //   y: rect[0].y,
-  //   width: test.clientWidth,
-  //   height: test.clientHeight
-  // }
-
   testArea = {
-    x: 100,
-    y: 100,
-    width: 130,
-    height: 130   
+    x: rect[0].x,
+    y: rect[0].y,
+    width: test.clientWidth,
+    height: test.clientHeight
   }
+
+  // testArea = {
+  //   x: 100,
+  //   y: 100,
+  //   width: 130,
+  //   height: 130   
+  // }
 
   let blendedData = contextBlended.getImageData(
     testArea.x,

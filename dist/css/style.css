@@ -6,7 +6,7 @@
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -100;
+  z-index: 0;
   transform: rotateY(180deg);
   pointer-events: none;
   -webkit-transform: rotateY(180deg);
@@ -23,7 +23,7 @@
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -100;
+  z-index: 20;
   transform: translateX(-50%) translateY(-50%);
   pointer-events: none;
   border: 5px solid red; }
@@ -31,7 +31,8 @@
 #canvas-blended {
   height: 100%;
   width: 100%;
-  border: 5px solid green; }
+  border: 5px solid green;
+  z-index: 0; }
 
 #test-area {
   position: absolute;
