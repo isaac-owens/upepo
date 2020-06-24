@@ -1,5 +1,4 @@
 // any javascript code imported here will be bundled into bundle.js by Webpack
-// console.log('Hello from Webpack UPEPO!');
 
 // BLUE BOX
 const webcam = document.getElementById('webcam');
@@ -50,6 +49,7 @@ window.requestAnimFrame = (function () {
     );
   })();
   
+  // runs following functions in a continual loop as long as webcam is active
   function update() {
     drawVideo();
     blend();
@@ -62,8 +62,8 @@ function drawVideo() {
 }
 
 // Ensures that the result of pixel subtraction is always positive. (~ Math.abs())
-// sourced from https://www.adobe.com/devnet/archive/html5/articles/javascript-motion-detection.html
 
+// sourced from https://www.adobe.com/devnet/archive/html5/articles/javascript-motion-detection.html
 function fastAbs(value) {
   return (value ^ (value >> 31)) - (value >> 31);
 }
@@ -122,5 +122,41 @@ function blend() {
 }
 
 function checkArea() {
-  // loop over pixels in test area
+  // still need to define properties of test area
+  const test = document.getElementById('test-area');
+
+  testArea = {
+    x: test.x,
+    y: test.y,
+    width: test.width,
+    height: toString.height
+  }
+  let blendedData = contextBlended.getImageData(
+    testArea.x,
+    testArea.y,
+    testArea.width,
+    testArea.height
+  );
+
+  let i = 0;
+  let average = 0;
+
+  // loop over the pixels
+  while (i < (blendedData.data.length * 0.25)) {
+    // find average of the color channel values (red, green, blue)
+    average += (
+      blendedData.data[i * 4] +
+      blendedData.data[i * 4 + 1] +
+      blendedData.data[i * 4 + 2]
+      ) / 3;
+
+      i++;
+
+      // calculate average of test area color values
+      average = Math.round(average / (blendedData.data.length * 0.25));
+      if (average > 10) {
+        // over the limit means that a movement is detected
+        console.log('Movement detected!')
+      }
+  }
 }

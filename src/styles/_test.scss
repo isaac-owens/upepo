@@ -21,8 +21,8 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  // min-width: 100%;
-  // min-height: 100%;
+  min-width: 50%;
+  min-height: 50%;
   width: auto;
   height: auto;
   z-index: -100;
@@ -31,10 +31,19 @@
   border: 5px solid red;
 }
 
+.motion-cam {
+  position: absolute;
+  bottom: 0vh;
+  left: 0;
+  width: 30%;
+}
+
 #canvas-blended {
   width: 100%;
   border: 5px solid green;
 }
+
+
 
 #test-area {
   position: absolute;

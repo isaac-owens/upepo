@@ -13,8 +13,9 @@
     <video id="webcam" autoplay playsinline width="640" height="480"></video>
     <!-- draws the stream received so it can be used for motion detection -->
     <canvas id="canvas-source" width="640" height="480"></canvas>
-    
-    <canvas id="canvas-blended" width="640" height="480"></canvas>
+    <div class="motion-cam">
+      <canvas id="canvas-blended" width="640" height="480"></canvas>
+    </div>
   </div>
   <div id="test-area"></div>
   <script src="./bundle.js"></script>
