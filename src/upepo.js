@@ -1,24 +1,30 @@
 // any javascript code imported here will be bundled into bundle.js by Webpack
-console.log('Hello from Webpack UPEPO!');
 
-// async function getMedia(constraints) {
-//   let stream = null;
+// BLUE BOX
+const webcam = document.getElementById('webcam');
+let timeOut, lastImageData;
 
-//   try {
-//     stream = await navigator.mediaDevices.getUserMedia(constraints);
-//   } catch(err) {
-//     console.log('Uh-oh! Looks like something went terribly wrong.');
-//     console.log(err);
-//   }
-// }
+// RED BOX
+let canvasSource = document.getElementById('canvas-source');
+let contextSource = canvasSource.getContext('2d');
 
+// GREEN BOX
+let canvasBlended = document.getElementById('canvas-blended');
+let contextBlended = canvasBlended.getContext('2d');
+
+// render reversed video for mirror effect
+contextSource.translate(canvasSource.width, 0);
+contextSource.scale(-1, 1);
+
+// gains accesss to user's webcam
 var constraints = { audio: false, video: { facingMode: "user" } };
 navigator.mediaDevices.getUserMedia(constraints)
 .then(function(stream) {
-  var webcam = document.getElementById('webcam');
+  const webcam = document.getElementById('webcam');
   webcam.srcObject = stream;
   webcam.onloadedmetadata = function(e) {
-    webcam.play();
+    // begin motion detection 
+    startMotionDetection();
   };
 })
 .catch(function(err) {
@@ -26,40 +32,38 @@ navigator.mediaDevices.getUserMedia(constraints)
   console.log(err);
 })
 
-window.onLoad = () => {
-  let testAreaPos = [115, 240];
-  let timeOut, lastImageData;
-
-  let canvas = document.getElementById('canvas');
-  let context = canvas.getContext('2d');
-  
-  let canvasBlended = document.getElementById("canvas-blended");
-  let contextBlended = canvasBlended.getContext("2d");
-  
-  context.translate(canvas.width, 0);
-  context.scale(-1, 1);
+function startMotionDetection() {
+  update();
 }
 
-/* 
-executed 60 times per second, calls functions to:
-  draw webam stream onto canvas,
-  blend the images,
-  detect the motion 
- */
-
-function update() {
-  drawVideo();
-  blend();
-  timeOut = setTimeout(update, 1000 / 60);
-}
+window.requestAnimFrame = (function () {
+  return (
+    window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (callback) {
+      window.setTimeout(callback, 1000 / 60);
+    }
+    );
+  })();
+  
+  // runs following functions in a continual loop as long as webcam is active
+  function update() {
+    drawVideo();
+    blend();
+    // checkArea();
+    requestAnimFrame(update);
+  }
 
 function drawVideo() {
-  context.drawImage(webcam, 0, 0, webcam.width, webcam.height);
+  contextSource.drawImage(webcam, 0, 0, webcam.width, webcam.height);
 }
 
 // Ensures that the result of pixel subtraction is always positive. (~ Math.abs())
-// sourced from https://www.adobe.com/devnet/archive/html5/articles/javascript-motion-detection.html
 
+// sourced from https://www.adobe.com/devnet/archive/html5/articles/javascript-motion-detection.html
 function fastAbs(value) {
   return (value ^ (value >> 31)) - (value >> 31);
 }
@@ -91,21 +95,21 @@ function difference(target, pixelArray1, pixelArray2) {
 }
 
 function blend() {
-  let canvasWidth = canvas.width;
-  let canvasHeight = canvas.height;
+  let canvasWidth = canvasSource.width;
+  let canvasHeight = canvasSource.height;
 
   // ImageData = array of pixels
 
   // .getImageData returns ImageData object that copies pixel data
   // for specified rectangle of canvas context
-  let canvasData = context.getImageData(0, 0, canvasWidth, canvasHeight);
+  let canvasData = contextSource.getImageData(0, 0, canvasWidth, canvasHeight);
 
   // creates an image if no previous image exists (i.e. first frame of stream)
   if (!lastImageData)
-    lastImageData = context.getImageData(0, 0, canvasWidth, canvasHeight);
+    lastImageData = contextSource.getImageData(0, 0, canvasWidth, canvasHeight);
 
   // create ImageData instance to get blended result
-  let blendedData = context.createImageData(canvasWidth, canvasHeight);
+  let blendedData = contextSource.createImageData(canvasWidth, canvasHeight);
 
   // blend the images
   difference(blendedData.data, canvasData.data, lastImageData.data);
@@ -118,28 +122,41 @@ function blend() {
 }
 
 function checkArea() {
-  // loop over test area
-  for (let i = 0; i < 2; i++) {
-    // get pixes in area from blended image
-    let blendedData = contextBlended.getImageData(
-      test[i].area.x,
-      test[i].area.y,
-      test[i].area.width,
-      test[i].area.height,
-    )
-    let j = 0;
-    let average = 0;
-    // loop over pixels
-    while (j < (blendedData.data.length / 4)) {
-      // make an average between color channel
-      average += (blendedData.data[i * 4] + blendedData.data[i * 4 + 1] + blendedData.data[i * 4 + 2]) / 3;
-      j++;
-    }
+  // still need to define properties of test area
+  const test = document.getElementById('test-area');
 
-    // calculate average between color values of note area
-    average = Math.round(average / (blendedData.data.length / 4));
-    if (average > 10) {
-      console.log("Movement detected in test area!");
-    }
+  testArea = {
+    x: test.x,
+    y: test.y,
+    width: test.width,
+    height: toString.height
+  }
+  let blendedData = contextBlended.getImageData(
+    testArea.x,
+    testArea.y,
+    testArea.width,
+    testArea.height
+  );
+
+  let i = 0;
+  let average = 0;
+
+  // loop over the pixels
+  while (i < (blendedData.data.length * 0.25)) {
+    // find average of the color channel values (red, green, blue)
+    average += (
+      blendedData.data[i * 4] +
+      blendedData.data[i * 4 + 1] +
+      blendedData.data[i * 4 + 2]
+      ) / 3;
+
+      i++;
+
+      // calculate average of test area color values
+      average = Math.round(average / (blendedData.data.length * 0.25));
+      if (average > 10) {
+        // over the limit means that a movement is detected
+        console.log('Movement detected!')
+      }
   }
 }

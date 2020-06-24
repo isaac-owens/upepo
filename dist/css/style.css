@@ -1,5 +1,42 @@
 #webcam {
-  position: relative; }
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: rotateY(180deg);
+  pointer-events: none;
+  -webkit-transform: rotateY(180deg);
+  /* Safari and Chrome */
+  -moz-transform: rotateY(180deg);
+  /* Firefox */
+  border: 10px solid blue; }
+
+#canvas-source {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 50%;
+  min-height: 50%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  border: 5px solid red; }
+
+.motion-cam {
+  position: absolute;
+  bottom: 0vh;
+  left: 0;
+  width: 30%; }
+
+#canvas-blended {
+  width: 100%;
+  border: 5px solid green; }
 
 #test-area {
   position: absolute;
