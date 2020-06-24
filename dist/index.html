@@ -7,12 +7,21 @@
   <title>UPEPO</title>
 </head>
 <body>
-  <!-- autoplay keeps the video from pausing on the first frame received -->
-  <video id="webcam" autoplay playsinline width="640" height="480"></video>
-  <!-- draws the stream received so it can be used for motion detection -->
-  <canvas id="canvas-source" width="640" height="480"></canvas>
-  <canvas id="canvas-blended" width="640" height="480"></canvas>
-  <div id="test-area"></div>
-  <script src="./bundle.js"></script>
+  <main class="app">
+    <div class="sidebar">
+      <div class="instrument-icon">bowl</div>
+      <div class="instrument-icon">chimes</div>
+      <div class="instrument-icon">gong</div>
+    </div>
+    <div class="motion-detection">
+      <!-- autoplay keeps the video from pausing on the first frame received -->
+      <video id="webcam" autoplay playsinline width="640" height="480"></video>
+      <!-- draws the stream received so it can be used for motion detection -->
+      <canvas id="canvas-source" width="640" height="480"></canvas>
+      <canvas id="canvas-blended" width="640" height="480"></canvas>
+      <div id="test-area"></div>
+      <script src="./bundle.js"></script>
+    </div>
+  </main>
 </body>
 </html>
