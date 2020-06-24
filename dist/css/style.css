@@ -1,3 +1,45 @@
+#webcam {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: rotateY(180deg);
+  pointer-events: none;
+  -webkit-transform: rotateY(180deg);
+  /* Safari and Chrome */
+  -moz-transform: rotateY(180deg);
+  /* Firefox */
+  border: 10px solid blue; }
 
+#canvas-source {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 20;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  border: 5px solid red; }
+
+#canvas-blended {
+  height: 100%;
+  width: 100%;
+  border: 5px solid green;
+  z-index: 0; }
+
+#test-area {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 500px;
+  left: 100px;
+  background-color: blue; }
 
 /*# sourceMappingURL=style.css.map */
