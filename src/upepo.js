@@ -36,6 +36,20 @@ window.requestAnimFrame = (function () {
     );
   })();
   
+  window.currentInstrument;
+
+  // document.getElementsByClassName('instrument-icon').addEventListener('click', (e) => {
+  //   console.log(e.currentTarget.id);
+  //   window.currentInstrument = `${e.currentTarget.id}`;
+  // })
+
+  [document.getElementsByClassName('instrument-icon')].forEach(instrument => {
+    addEventListener('click', (e) => {
+      window.currentInstrument = e.target.id;
+      console.log(window.currentInstrument);
+    })
+  })
+
   // runs following functions in a continual loop as long as webcam is active
   function update() {
     video.drawVideo();
@@ -44,12 +58,7 @@ window.requestAnimFrame = (function () {
     requestAnimFrame(update);
   }
 
-
-sound.setupSample()
-.then(sample => {
-  console.log(`${sample} is locked and loaded!`)
-  window.addEventListener('click', () => {
-    sound.playSample(sound.audioCtx, sample);
-  })
-})
-
+// sound.setupSample()
+// .then(sample => {
+//   sound.playSample(sound.audioCtx, sample);
+// })

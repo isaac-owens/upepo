@@ -10,8 +10,8 @@ export async function getFile(audioContext, filepath) {
   return audioBuffer;
 }
 
-export async function setupSample() {
-  const filePath = '../../sounds/beep_test.wav';
+export async function setupSample(instrument) {
+  const filePath = `../../sounds/${instrument}.wav`;
   const sample = await getFile(audioCtx, filePath);
   return sample;
 }

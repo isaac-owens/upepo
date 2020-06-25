@@ -1,4 +1,6 @@
 import * as VideoUTIL from './video_utils';
+import * as sound from "./sound";
+
 import {
   webcam, 
   canvasSource,
@@ -53,12 +55,14 @@ export function checkArea() {
 
   let rect = test.getClientRects();
 
-  let testArea = {
-    x: rect[0].x,
+  const testArea = {
+    x: rect[0].x - 330,
     y: rect[0].y,
     width: test.clientWidth,
     height: test.clientHeight,
   };
+
+  window.testArea = testArea;
 
   // testArea = {
   //   x: 100,
@@ -97,5 +101,8 @@ export function checkArea() {
   if (average > 10) {
     // over the limit means that a movement is detected
     console.log("Movement detected!");
+    sound.setupSample('bowl').then((sample) => {
+      sound.playSample(sound.audioCtx, sample);
+    });
   }
 }
