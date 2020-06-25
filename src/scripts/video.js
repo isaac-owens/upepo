@@ -100,8 +100,7 @@ export function checkArea() {
 
   if (average > 10) {
     // over the limit means that a movement is detected
-    console.log("Movement detected!");
-    sound.setupSample('bowl').then((sample) => {
+    sound.setupSample(window.currentInstrument).then((sample) => {
       sound.playSample(sound.audioCtx, sample);
     });
   }

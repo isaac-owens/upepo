@@ -36,12 +36,8 @@ window.requestAnimFrame = (function () {
     );
   })();
   
+  // sets currently selected instrument on icon click
   window.currentInstrument;
-
-  // document.getElementsByClassName('instrument-icon').addEventListener('click', (e) => {
-  //   console.log(e.currentTarget.id);
-  //   window.currentInstrument = `${e.currentTarget.id}`;
-  // })
 
   [document.getElementsByClassName('instrument-icon')].forEach(instrument => {
     addEventListener('click', (e) => {
@@ -57,8 +53,3 @@ window.requestAnimFrame = (function () {
     video.checkArea();
     requestAnimFrame(update);
   }
-
-// sound.setupSample()
-// .then(sample => {
-//   sound.playSample(sound.audioCtx, sample);
-// })
