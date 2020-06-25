@@ -7,17 +7,21 @@
   <title>UPEPO</title>
 </head>
 <body>
-  <h1>Hello from Upepo!</h1>
-  <div class="webcam-container">
-    <!-- autoplay keeps the video from pausing on the first frame received -->
-    <video id="webcam" autoplay playsinline width="640" height="480"></video>
-    <!-- draws the stream received so it can be used for motion detection -->
-    <canvas id="canvas-source" width="640" height="480"></canvas>
-    <!-- <div class="motion-cam"> -->
+  <main class="app">
+    <div class="sidebar">
+      <img class="instrument-icon" src="images/bowl.png" alt="bowl icon">
+      <img class="instrument-icon" src="images/chime.png" alt="chimes icon">
+      <img class="instrument-icon" src="images/gong.png" alt=" gong icon">
+    </div>
+    <div class="motion-detection">
+      <!-- autoplay keeps the video from pausing on the first frame received -->
+      <video id="webcam" autoplay playsinline width="640" height="480"></video>
+      <!-- draws the stream received so it can be used for motion detection -->
+      <canvas id="canvas-source" width="640" height="480"></canvas>
       <canvas id="canvas-blended" width="640" height="480"></canvas>
-    <!-- </div> -->
-  </div>
-  <div id="test-area"></div>
-  <script src="./bundle.js"></script>
+      <div id="test-area"></div>
+      <script src="./bundle.js"></script>
+    </div>
+  </main>
 </body>
 </html>
