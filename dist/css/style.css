@@ -24,8 +24,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 160px;
-  width: 160px;
-  border: 2px solid white; }
+  width: 160px; }
 
 .motion-detection {
   position: relative;

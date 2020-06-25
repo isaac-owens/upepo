@@ -1,4 +1,7 @@
 // any javascript code imported here will be bundled into bundle.js by Webpack
+import * as sound from '../src/scripts/sound';
+
+
 
 // BLUE BOX
 const webcam = document.getElementById('webcam');
@@ -126,9 +129,9 @@ function checkArea() {
   const test = document.getElementById('test-area');
   window.test = test;
 
-  rect = test.getClientRects();
+  let rect = test.getClientRects();
   
-  testArea = {
+  let testArea = {
     x: rect[0].x,
     y: rect[0].y,
     width: test.clientWidth,
@@ -165,14 +168,22 @@ function checkArea() {
       i++;
   }
 
-      // calculate average of test area color values
-      average = Math.round(average / (blendedData.data.length * 0.25));
-      window.blendedData = blendedData;
-      window.average = average;
-      
-      if (average > 10) {
-        // over the limit means that a movement is detected
-        console.log('Movement detected!')
-      }
-    }
+  // calculate average of test area color values
+  average = Math.round(average / (blendedData.data.length * 0.25));
+  window.blendedData = blendedData;
+  window.average = average;
+  
+  if (average > 10) {
+    // over the limit means that a movement is detected
+    console.log('Movement detected!')
+  }
+}
+
+sound.setupSample()
+.then(sample => {
+  console.log(`${sample} is locked and loaded!`)
+  window.addEventListener('click', () => {
+    sound.playSample(sound.audioCtx, sample);
+  })
+})
 

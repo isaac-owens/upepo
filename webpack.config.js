@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/upepo.js',
+  entry: ['babel-polyfill', './src/upepo.js'],
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
