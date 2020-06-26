@@ -41,14 +41,14 @@ const backgroundMusic = backgroundAudioCtx.createMediaElementSource(backgroundAu
 const gainNode = backgroundAudioCtx.createGain();
 backgroundMusic.connect(gainNode).connect(backgroundAudioCtx.destination);
 
-const playButton = document.querySelector('play');
+const playButton = document.getElementById('play-button');
 
 // play-pause button functionality 
 document.addEventListener('DOMContentLoaded', () => {
 
   playButton.addEventListener('click', function() {
-    if (backgroundAudioContext.state === 'suspended') {
-      backgroundAudioContext.resume();
+    if (backgroundAudioCtx.state === 'suspended') {
+      backgroundAudioCtx.resume();
     }
   
     if (this.dataset.playing === 'false') {
@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   // stops background music completely after it is done playing all the way through
   backgroundAudioElement.addEventListener('ended', () => {
-    playButton.dataset.playing = 'false';
+    backgroundAudioElement.play();
+    playButton.dataset.playing = 'true';
   }, false)
 })
 
