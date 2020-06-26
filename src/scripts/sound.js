@@ -41,7 +41,6 @@ const backgroundMusic = backgroundAudioCtx.createMediaElementSource(backgroundAu
 const gainNode = backgroundAudioCtx.createGain();
 backgroundMusic.connect(gainNode).connect(backgroundAudioCtx.destination);
 
-
 const playButton = document.querySelector('play');
 
 // play-pause button functionality 
