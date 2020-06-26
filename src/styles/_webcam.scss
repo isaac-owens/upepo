@@ -31,6 +31,18 @@ body {
   width: 160px;
 }
 
+.instrument-icon-glow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  width: 160px;
+  box-shadow:
+    0 0 60px 30px #fff,  /* inner white */
+    0 0 100px 60px #f0f, /* middle magenta */
+    0 0 140px 90px #0ff; /* outer cyan */
+}
+
 .motion-detection {
   position: relative;
   width: 80%;
@@ -67,11 +79,12 @@ body {
 
 
 #test-area {
+  border-radius: 50%;
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   top: 200px;
   left: 200px;
   z-index: 100;
-  background-color: blue;
+  border: 5px solid orange;
 }

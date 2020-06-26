@@ -37,7 +37,7 @@ window.requestAnimFrame = (function () {
   })();
   
   // sets currently selected instrument on icon click
-  window.currentInstrument;
+  window.currentInstrument = 'bowl';
 
   [document.getElementsByClassName('instrument-icon')].forEach(instrument => {
     addEventListener('click', (e) => {

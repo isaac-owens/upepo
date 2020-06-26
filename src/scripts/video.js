@@ -87,8 +87,7 @@ export function checkArea() {
     average +=
       (blendedData.data[i * 4] +
         blendedData.data[i * 4 + 1] +
-        blendedData.data[i * 4 + 2]) /
-      3;
+        blendedData.data[i * 4 + 2]) / 3;
 
     i++;
   }
