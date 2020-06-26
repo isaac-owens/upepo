@@ -41,6 +41,7 @@ window.requestAnimFrame = (function () {
 
   [document.getElementsByClassName('instrument-icon')].forEach(instrument => {
     addEventListener('click', (e) => {
+      e.stopPropagation();
       window.currentInstrument = e.target.id;
       console.log(window.currentInstrument);
     })

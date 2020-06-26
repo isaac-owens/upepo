@@ -46,6 +46,7 @@ const playButton = document.querySelector('play');
 
 // play-pause button functionality 
 document.addEventListener('DOMContentLoaded', () => {
+
   playButton.addEventListener('click', function() {
     if (backgroundAudioContext.state === 'suspended') {
       backgroundAudioContext.resume();
