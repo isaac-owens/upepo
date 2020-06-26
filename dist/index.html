@@ -4,15 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="data:;base64,=">
   <title>UPEPO</title>
 </head>
 <body>
   <main class="app">
+
     <div class="sidebar">
-      <img class="instrument-icon" src="images/bowl.png" alt="bowl icon">
-      <img class="instrument-icon" src="images/chime.png" alt="chimes icon">
-      <img class="instrument-icon" src="images/gong.png" alt=" gong icon">
+      <img id="bowl" class="instrument-icon" src="images/bowl.png" alt="bowl icon">
+      <img id="chimes" class="instrument-icon" src="images/chime.png" alt="chimes icon">
+      <img id="gong" class="instrument-icon" src="images/gong.png" alt=" gong icon">
     </div>
+
     <div class="motion-detection">
       <!-- autoplay keeps the video from pausing on the first frame received -->
       <video id="webcam" autoplay playsinline width="640" height="480"></video>
@@ -20,8 +23,19 @@
       <canvas id="canvas-source" width="640" height="480"></canvas>
       <canvas id="canvas-blended" width="640" height="480"></canvas>
       <div id="test-area"></div>
-      <script src="./bundle.js"></script>
+    </div>
+
+    <div class="audio-controls">
+      <!-- background audio file (.ogg) -->
+      <audio id="background-audio" src="sounds/wind.wav"></audio>
+        <!-- Play/Pause button for background audio -->
+      <button id="play-button" data-playing="false" role="switch" aria-checked="false">
+        <span>Play/Pause</span>
+      </button>
+      <!-- controls volume of background music -->
+      <input type="range" id="volume" min="0" max="2" value="1" step="0.01">
     </div>
   </main>
+  <script src="./bundle.js"></script>
 </body>
 </html>
