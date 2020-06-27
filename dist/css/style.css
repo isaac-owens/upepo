@@ -24,7 +24,8 @@ body {
   align-items: center;
   justify-content: center;
   height: 160px;
-  width: 160px; }
+  width: 160px;
+  background-color: transparent; }
 
 .instrument-icon-glow {
   display: flex;
@@ -39,7 +40,18 @@ body {
   position: relative;
   width: 80%; }
 
+.audio-controls {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  z-index: 1000; }
+
+.volume {
+  color: white; }
+
 #webcam {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   width: 100%;
   height: 100%;

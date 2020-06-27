@@ -54,9 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (this.dataset.playing === 'false') {
       backgroundAudioElement.play();
       this.dataset.playing = 'true';
+      this.innerHTML = '<i class="fas fa-pause"></i>';
     } else if (this.dataset.playing === 'true') {
       backgroundAudioElement.pause();
       this.dataset.playing = 'false';
+      this.innerHTML = '<i class="fas fa-play"></i>';
     }
   }, false)
   
@@ -78,3 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
     gainNode.gain.value = this.value;
   }, false);
 })
+
+playButton = document.getElementById('play-button');
+
+playButton.addEventListener('click', () => {
+  if (playButton.classList.contains("fas fa-play")) {
+    playButton.classList.remove("fas fa-play");
+    playButton.classList.add("fas fa-pause");
+  } else {
+    playButton.classList.remove("fas fa-pause");
+    playButton.classList.add("fas fa-play");
+  }
+});
