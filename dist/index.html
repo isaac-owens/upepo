@@ -12,7 +12,7 @@
 
     <div class="sidebar">
       <img id="bowl" class="instrument-icon" src="images/bowl.png" alt="bowl icon">
-      <img id="chimes" class="instrument-icon" src="images/chime.png" alt="chimes icon">
+      <img id="chimes" class="instrument-icon" src="images/chimes.png" alt="chimes icon">
       <img id="gong" class="instrument-icon" src="images/gong.png" alt=" gong icon">
     </div>
 
@@ -22,7 +22,9 @@
       <!-- draws the stream received so it can be used for motion detection -->
       <canvas id="canvas-source" width="640" height="480"></canvas>
       <canvas id="canvas-blended" width="640" height="480"></canvas>
-      <div id="test-area"></div>
+      <div id="test-area">
+        <img id="bowl" class="instrument-icon" src="images/bowl.png" alt="bowl icon">
+      </div>
       <div class="audio-controls">
         <!-- background audio file (.ogg) -->
         <audio id="background-audio" src="sounds/wind.wav"></audio>

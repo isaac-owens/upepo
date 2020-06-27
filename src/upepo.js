@@ -42,10 +42,9 @@ window.requestAnimFrame = (function () {
   Array.from(document.getElementsByClassName('instrument-icon')).forEach(instrument => {
     // debugger
     instrument.addEventListener('click', (e) => {
-      e.stopPropagation();
-      window.instrument = instrument;
       window.currentInstrument = e.target.id;
-      console.log(window.currentInstrument);
+      document.getElementById("test-area").innerHTML =
+        `<img id=${window.currentInstrument} class="instrument-icon" src="images/${window.currentInstrument}.png" alt="bowl icon">`;
     })
   })
 

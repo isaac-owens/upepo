@@ -41,10 +41,12 @@ body {
   width: 80%; }
 
 .audio-controls {
+  box-sizing: border-box;
   position: absolute;
   display: flex;
   flex-direction: row;
-  z-index: 1000; }
+  z-index: 1000;
+  padding: 20px; }
 
 .volume {
   color: white; }
@@ -77,10 +79,13 @@ body {
   z-index: 0; }
 
 #test-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   position: absolute;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
   top: 200px;
   left: 200px;
   z-index: 100;
