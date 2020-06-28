@@ -26,12 +26,12 @@
       <div id="test-area">
         <img id="bowl" class="instrument-icon" src="images/bowl.png" alt="bowl icon">
       </div>
-      <div class="audio-controls">
-        <div>
+      <div class="header-container">
+        <div class="audio-controls">
           <!-- background audio file (.ogg) -->
           <audio id="background-audio" src="sounds/wind.wav"></audio>
             <!-- Play/Pause button for background audio -->
-          <button id="play-button" data-playing="false" role="switch" aria-checked="false">
+          <button id="play-button" class="play-button" data-playing="false" role="switch" aria-checked="false">
             <i class="fas fa-play"></i>
           </button>
           <!-- controls volume of background music -->
@@ -47,15 +47,15 @@
       <div class="modal-content">
         <span 
         id="closeBtn" class="closeBtn">&times;</span>
-        <div class="modal-header">Welcome to UPEPO!</div>
+        <h1 class="modal-header">Welcome to UPEPO!</h1>
         <div class="modal-body">
-          Upepo is a sound therapy app that lets you play instruments with just your webcam and hands!  
-          <ol>How to use UPEOP:</ol>
+          Upepo is a sound therapy app that lets you play virtual instruments with just your webcam and hands!  
+          <ol>How to use UPEPO:</ol>
             <li>Turn webcam access on</li>
-            <li>Select an instrument in the sidebar by clicking on it</li>
-            <li>Wave your hand in the orange circle to play the instrument</li>
-          <p>You can also turn on background music by clicking the play button in the top right corner, and access these instructions by clicking the button in the top right corner.  Relax and enjoy!</p>
+            <li>Select an instrument in the sidebar by clicking on it (Your selected instrument will appear in the orange circle)</li>
+            <li>Wave your hand in the orange circle to play the instrument!</li>
         </div>
+        <footer class="modal-footer">You can also turn on background sound by clicking the play button in the top left corner, and access these instructions again by clicking the INSTRUCTIONS button in the top right corner.  Relax and enjoy!</footer>
       </div>
     </div>
   </main>

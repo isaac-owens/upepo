@@ -14,15 +14,32 @@
 .modal-content {
   background-color: white;
   margin: 20% auto;
-  padding: 20px;
   width: 70%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, .2);
+}
+
+.modal-header {
+  background-color: orange;
+  padding: 2px 20px;
+}
+
+.modal-body {
+  font-size: 20px;
+  padding: 15px;
+}
+
+.modal-footer {
+  background-color: orange;
+  opacity: .7;
+  font-size: 14px;
+  padding: 10px;
 }
 
 .closeBtn {
   color: #ccc;
   float: right;
   font-size: 30px;
+  margin: 5px;
 }
 
 .instructionBtn {
