@@ -94,6 +94,7 @@ body {
   border: 5px solid orange; }
 
 .modal {
+  font-family: 'Poppins', sans-serif;
   display: block;
   position: fixed;
   z-index: 200;
@@ -115,6 +116,15 @@ body {
   color: #ccc;
   float: right;
   font-size: 30px; }
+
+.instructionBtn {
+  background-color: orange;
+  padding: 12px;
+  color: black; }
+
+.instructionBtn:hover, .instructionBtn:focus {
+  outline: none;
+  background-color: white; }
 
 .closeBtn:hover {
   color: black;
