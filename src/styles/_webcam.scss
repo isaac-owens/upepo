@@ -50,11 +50,13 @@ body {
 }
 
 .audio-controls {
+  width: 100%;
   box-sizing: border-box;
   position: absolute;
   display: flex;
   flex-direction: row;
-  z-index: 1000;
+  justify-content: space-between;
+  z-index: 100;
   padding: 20px;
 }
 

@@ -26,17 +26,29 @@
         <img id="bowl" class="instrument-icon" src="images/bowl.png" alt="bowl icon">
       </div>
       <div class="audio-controls">
-        <!-- background audio file (.ogg) -->
-        <audio id="background-audio" src="sounds/wind.wav"></audio>
-          <!-- Play/Pause button for background audio -->
-        <button id="play-button" data-playing="false" role="switch" aria-checked="false">
-          <i class="fas fa-play"></i>
-        </button>
-        <!-- controls volume of background music -->
-        <input type="range" id="volume" min="0" max="4" value="1" step="0.01">
+        <div>
+          <!-- background audio file (.ogg) -->
+          <audio id="background-audio" src="sounds/wind.wav"></audio>
+            <!-- Play/Pause button for background audio -->
+          <button id="play-button" data-playing="false" role="switch" aria-checked="false">
+            <i class="fas fa-play"></i>
+          </button>
+          <!-- controls volume of background music -->
+          <input type="range" id="volume" min="0" max="4" value="1" step="0.01">
+        </div>
+        <div>
+          <button id="instructionBtn" class="instructionBtn">Instructions</button>
+        </div>
       </div>
     </div>
 
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span 
+        id="closeBtn" class="closeBtn">&times;</span>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sapiente saepe, a aperiam aliquid cupiditate architecto corrupti consequuntur voluptatem esse similique repellat distinctio unde alias ducimus omnis consequatur enim tempora.</p>
+      </div>
+    </div>
   </main>
   <script src="./bundle.js"></script>
 </body>

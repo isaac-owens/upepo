@@ -55,3 +55,26 @@ window.requestAnimFrame = (function () {
     video.checkArea();
     requestAnimFrame(update);
   }
+
+  window.onload = function() {
+    // get modal element
+    const modal = document.getElementById('modal');
+  
+    // get close button
+    const closeBtn = document.getElementById('closeBtn');
+
+    // get open button
+    const instructionBtn = document.getElementById('instructionBtn');
+  
+    closeBtn.addEventListener('click', closeModal)
+
+    instructionBtn.addEventListener('click', openModal);
+  
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+  
+  function openModal() {
+    modal.style.display = 'block';
+  }
+}
