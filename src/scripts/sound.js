@@ -54,9 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (this.dataset.playing === 'false') {
       backgroundAudioElement.play();
       this.dataset.playing = 'true';
+      this.innerHTML = '<i class="fas fa-pause"></i>';
     } else if (this.dataset.playing === 'true') {
       backgroundAudioElement.pause();
       this.dataset.playing = 'false';
+      this.innerHTML = '<i class="fas fa-play"></i>';
     }
   }, false)
   

@@ -42,10 +42,9 @@ window.requestAnimFrame = (function () {
   Array.from(document.getElementsByClassName('instrument-icon')).forEach(instrument => {
     // debugger
     instrument.addEventListener('click', (e) => {
-      e.stopPropagation();
-      window.instrument = instrument;
       window.currentInstrument = e.target.id;
-      console.log(window.currentInstrument);
+      document.getElementById("test-area").innerHTML =
+        `<img id=${window.currentInstrument} class="instrument-icon" src="images/${window.currentInstrument}.png" alt="bowl icon">`;
     })
   })
 
@@ -56,3 +55,26 @@ window.requestAnimFrame = (function () {
     video.checkArea();
     requestAnimFrame(update);
   }
+
+  window.onload = function() {
+    // get modal element
+    const modal = document.getElementById('modal');
+  
+    // get close button
+    const closeBtn = document.getElementById('closeBtn');
+
+    // get open button
+    const instructionBtn = document.getElementById('instructionBtn');
+  
+    closeBtn.addEventListener('click', closeModal)
+
+    instructionBtn.addEventListener('click', openModal);
+  
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+  
+  function openModal() {
+    modal.style.display = 'block';
+  }
+}
