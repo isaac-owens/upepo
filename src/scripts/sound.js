@@ -10,7 +10,7 @@ export async function getFile(audioContext, filepath) {
 }
 
 export async function setupSample(instrument) {
-  const filePath = `../../sounds/${instrument}.wav`;
+  const filePath = `dist/sounds/${instrument}.wav`;
   const sample = await getFile(audioCtx, filePath);
   return sample;
 }

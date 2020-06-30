@@ -44,7 +44,7 @@ window.requestAnimFrame = (function () {
     instrument.addEventListener('click', (e) => {
       window.currentInstrument = e.target.id;
       document.getElementById("test-area").innerHTML =
-        `<img id=${window.currentInstrument} class="instrument-icon" src="images/${window.currentInstrument}.png" alt="bowl icon">`;
+        `<img id=${window.currentInstrument} class="instrument-icon" src="dist/images/${window.currentInstrument}.png" alt="bowl icon">`;
     })
   })
 

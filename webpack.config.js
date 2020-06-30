@@ -2,7 +2,7 @@ module.exports = {
   entry: ['babel-polyfill', './src/upepo.js'],
   output: {
     path: __dirname + '/dist',
-    publicPath: '/',
+    // publicPath: '/',
     filename: 'bundle.js'
   },
   module: {
@@ -10,7 +10,9 @@ module.exports = {
       {
         test: /\.(js)$/, 
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: { 
+          loader: 'babel-loader' 
+        }
       }
     ]
   },
