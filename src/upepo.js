@@ -1,7 +1,22 @@
 // any javascript code imported here will be bundled into bundle.js by Webpack
 import * as sound from '../src/scripts/sound';
+
+import './images/bowl.png';
+import './images/chimes.png';
+import './images/gong.png';
+import './sounds/wind.wav';
+
+import bowlImage from './images/bowl.png';
+import chimesImage from './images/chimes.png';
+import gongImage from './images/gong.png';
+
 import * as video from '../src/scripts/video';
 
+const icons = {
+  'bowl': bowlImage,
+  'chimes': chimesImage,
+  'gong': gongImage,
+}
 // gains accesss to user's webcam
 var constraints = { audio: false, video: { facingMode: "user" } };
 navigator.mediaDevices.getUserMedia(constraints)
@@ -44,7 +59,7 @@ window.requestAnimFrame = (function () {
     instrument.addEventListener('click', (e) => {
       window.currentInstrument = e.target.id;
       document.getElementById("test-area").innerHTML =
-        `<img id=${window.currentInstrument} class="instrument-icon" src="dist/images/${window.currentInstrument}.png" alt="bowl icon">`;
+        `<img id=${window.currentInstrument} class="instrument-icon" src=${icons[window.currentInstrument]} alt=${window.currentInstrument}>`;
     })
   })
 

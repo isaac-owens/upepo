@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -3838,6 +3838,42 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 
 /***/ }),
 
+/***/ "./src/images/bowl.png":
+/*!*****************************!*\
+  !*** ./src/images/bowl.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"./dist/images/bowl.png\");\n\n//# sourceURL=webpack:///./src/images/bowl.png?");
+
+/***/ }),
+
+/***/ "./src/images/chimes.png":
+/*!*******************************!*\
+  !*** ./src/images/chimes.png ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"./dist/images/chimes.png\");\n\n//# sourceURL=webpack:///./src/images/chimes.png?");
+
+/***/ }),
+
+/***/ "./src/images/gong.png":
+/*!*****************************!*\
+  !*** ./src/images/gong.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"./dist/images/gong.png\");\n\n//# sourceURL=webpack:///./src/images/gong.png?");
+
+/***/ }),
+
 /***/ "./src/scripts/canvas.js":
 /*!*******************************!*\
   !*** ./src/scripts/canvas.js ***!
@@ -3858,7 +3894,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"AudioContext\", function() { return AudioContext; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"audioCtx\", function() { return audioCtx; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getFile\", function() { return getFile; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setupSample\", function() { return setupSample; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"playSample\", function() { return playSample; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"stopSample\", function() { return stopSample; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"backgroundAudioCtx\", function() { return backgroundAudioCtx; });\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\nvar AudioContext = window.AudioContext || window.webkitAudioContext;\nvar audioCtx = new AudioContext(); // await operator ensures we can only run subsequent code when it has finished executing\n\nfunction getFile(_x, _x2) {\n  return _getFile.apply(this, arguments);\n}\n\nfunction _getFile() {\n  _getFile = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(audioContext, filepath) {\n    var response, arrayBuffer, audioBuffer;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.next = 2;\n            return fetch(filepath);\n\n          case 2:\n            response = _context.sent;\n            _context.next = 5;\n            return response.arrayBuffer();\n\n          case 5:\n            arrayBuffer = _context.sent;\n            _context.next = 8;\n            return audioContext.decodeAudioData(arrayBuffer);\n\n          case 8:\n            audioBuffer = _context.sent;\n            return _context.abrupt(\"return\", audioBuffer);\n\n          case 10:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee);\n  }));\n  return _getFile.apply(this, arguments);\n}\n\nfunction setupSample(_x3) {\n  return _setupSample.apply(this, arguments);\n}\n\nfunction _setupSample() {\n  _setupSample = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(instrument) {\n    var filePath, sample;\n    return regeneratorRuntime.wrap(function _callee2$(_context2) {\n      while (1) {\n        switch (_context2.prev = _context2.next) {\n          case 0:\n            filePath = \"dist/sounds/\".concat(instrument, \".wav\");\n            _context2.next = 3;\n            return getFile(audioCtx, filePath);\n\n          case 3:\n            sample = _context2.sent;\n            return _context2.abrupt(\"return\", sample);\n\n          case 5:\n          case \"end\":\n            return _context2.stop();\n        }\n      }\n    }, _callee2);\n  }));\n  return _setupSample.apply(this, arguments);\n}\n\nfunction playSample(audioContext, audioBuffer) {\n  var sampleSource = audioContext.createBufferSource();\n  sampleSource.buffer = audioBuffer;\n  sampleSource.connect(audioContext.destination);\n  sampleSource.start();\n  return sampleSource;\n}\nfunction stopSample(audioContext, audioBuffer) {\n  var sampleSource = audioContext.createBufferSource();\n  sampleSource.buffer = audioBuffer;\n  sampleSource.connect(audioContext.destination);\n  sampleSource.stop();\n  return sampleSource;\n} // creates media element from background music <audio> tag for API manipulation\n\nvar backgroundAudioCtx = new AudioContext();\nvar backgroundAudioElement = document.getElementById('background-audio');\nwindow.audio = backgroundAudioElement;\nvar backgroundMusic = backgroundAudioCtx.createMediaElementSource(backgroundAudioElement); // creates gain for background music volume control\n\nvar gainNode = backgroundAudioCtx.createGain();\nbackgroundMusic.connect(gainNode).connect(backgroundAudioCtx.destination);\nvar playButton = document.getElementById('play-button'); // play-pause button functionality \n\ndocument.addEventListener('DOMContentLoaded', function () {\n  playButton.addEventListener('click', function () {\n    if (backgroundAudioCtx.state === 'suspended') {\n      backgroundAudioCtx.resume();\n    }\n\n    if (this.dataset.playing === 'false') {\n      backgroundAudioElement.play();\n      this.dataset.playing = 'true';\n      this.innerHTML = '<i class=\"fas fa-pause\"></i>';\n    } else if (this.dataset.playing === 'true') {\n      backgroundAudioElement.pause();\n      this.dataset.playing = 'false';\n      this.innerHTML = '<i class=\"fas fa-play\"></i>';\n    }\n  }, false);\n});\ndocument.addEventListener('DOMContentLoaded', function () {\n  // stops background music completely after it is done playing all the way through\n  backgroundAudioElement.addEventListener('ended', function () {\n    backgroundAudioElement.play();\n    playButton.dataset.playing = 'true';\n  }, false);\n});\ndocument.addEventListener('DOMContentLoaded', function () {\n  var volumeControl = document.getElementById('volume'); // updates the volume based on value on range <input> value\n\n  volumeControl.addEventListener('input', function () {\n    gainNode.gain.value = this.value;\n  }, false);\n});\n\n//# sourceURL=webpack:///./src/scripts/sound.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"AudioContext\", function() { return AudioContext; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"audioCtx\", function() { return audioCtx; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getFile\", function() { return getFile; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setupSample\", function() { return setupSample; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"playSample\", function() { return playSample; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"stopSample\", function() { return stopSample; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"backgroundAudioCtx\", function() { return backgroundAudioCtx; });\n/* harmony import */ var _sounds_bowl_wav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sounds/bowl.wav */ \"./src/sounds/bowl.wav\");\n/* harmony import */ var _sounds_chimes_wav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../sounds/chimes.wav */ \"./src/sounds/chimes.wav\");\n/* harmony import */ var _sounds_gong_wav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sounds/gong.wav */ \"./src/sounds/gong.wav\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\n\n\nvar instruments = {\n  bowl: _sounds_bowl_wav__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n  chimes: _sounds_chimes_wav__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  gong: _sounds_gong_wav__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\n};\nvar AudioContext = window.AudioContext || window.webkitAudioContext;\nvar audioCtx = new AudioContext(); // await operator ensures we can only run subsequent code when it has finished executing\n\nfunction getFile(_x, _x2) {\n  return _getFile.apply(this, arguments);\n}\n\nfunction _getFile() {\n  _getFile = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(audioContext, filepath) {\n    var response, arrayBuffer, audioBuffer;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.next = 2;\n            return fetch(filepath);\n\n          case 2:\n            response = _context.sent;\n            _context.next = 5;\n            return response.arrayBuffer();\n\n          case 5:\n            arrayBuffer = _context.sent;\n            _context.next = 8;\n            return audioContext.decodeAudioData(arrayBuffer);\n\n          case 8:\n            audioBuffer = _context.sent;\n            return _context.abrupt(\"return\", audioBuffer);\n\n          case 10:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee);\n  }));\n  return _getFile.apply(this, arguments);\n}\n\nfunction setupSample(_x3) {\n  return _setupSample.apply(this, arguments);\n}\n\nfunction _setupSample() {\n  _setupSample = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(instrument) {\n    var filePath, sample;\n    return regeneratorRuntime.wrap(function _callee2$(_context2) {\n      while (1) {\n        switch (_context2.prev = _context2.next) {\n          case 0:\n            // const filePath = bowl;\n            filePath = instruments[instrument];\n            _context2.next = 3;\n            return getFile(audioCtx, filePath);\n\n          case 3:\n            sample = _context2.sent;\n            return _context2.abrupt(\"return\", sample);\n\n          case 5:\n          case \"end\":\n            return _context2.stop();\n        }\n      }\n    }, _callee2);\n  }));\n  return _setupSample.apply(this, arguments);\n}\n\nfunction playSample(audioContext, audioBuffer) {\n  var sampleSource = audioContext.createBufferSource();\n  sampleSource.buffer = audioBuffer;\n  sampleSource.connect(audioContext.destination);\n  sampleSource.start();\n  return sampleSource;\n}\nfunction stopSample(audioContext, audioBuffer) {\n  var sampleSource = audioContext.createBufferSource();\n  sampleSource.buffer = audioBuffer;\n  sampleSource.connect(audioContext.destination);\n  sampleSource.stop();\n  return sampleSource;\n} // creates media element from background music <audio> tag for API manipulation\n\nvar backgroundAudioCtx = new AudioContext();\nvar backgroundAudioElement = document.getElementById('background-audio');\nwindow.audio = backgroundAudioElement;\nvar backgroundMusic = backgroundAudioCtx.createMediaElementSource(backgroundAudioElement); // creates gain for background music volume control\n\nvar gainNode = backgroundAudioCtx.createGain();\nbackgroundMusic.connect(gainNode).connect(backgroundAudioCtx.destination);\nvar playButton = document.getElementById('play-button'); // play-pause button functionality \n\ndocument.addEventListener('DOMContentLoaded', function () {\n  playButton.addEventListener('click', function () {\n    if (backgroundAudioCtx.state === 'suspended') {\n      backgroundAudioCtx.resume();\n    }\n\n    if (this.dataset.playing === 'false') {\n      backgroundAudioElement.play();\n      this.dataset.playing = 'true';\n      this.innerHTML = '<i class=\"fas fa-pause\"></i>';\n    } else if (this.dataset.playing === 'true') {\n      backgroundAudioElement.pause();\n      this.dataset.playing = 'false';\n      this.innerHTML = '<i class=\"fas fa-play\"></i>';\n    }\n  }, false);\n});\ndocument.addEventListener('DOMContentLoaded', function () {\n  // stops background music completely after it is done playing all the way through\n  backgroundAudioElement.addEventListener('ended', function () {\n    backgroundAudioElement.play();\n    playButton.dataset.playing = 'true';\n  }, false);\n});\ndocument.addEventListener('DOMContentLoaded', function () {\n  var volumeControl = document.getElementById('volume'); // updates the volume based on value on range <input> value\n\n  volumeControl.addEventListener('input', function () {\n    gainNode.gain.value = this.value;\n  }, false);\n});\n\n//# sourceURL=webpack:///./src/scripts/sound.js?");
 
 /***/ }),
 
@@ -3886,6 +3922,54 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./src/sounds/bowl.wav":
+/*!*****************************!*\
+  !*** ./src/sounds/bowl.wav ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"./dist/sounds/bowl.wav\");\n\n//# sourceURL=webpack:///./src/sounds/bowl.wav?");
+
+/***/ }),
+
+/***/ "./src/sounds/chimes.wav":
+/*!*******************************!*\
+  !*** ./src/sounds/chimes.wav ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"./dist/sounds/chimes.wav\");\n\n//# sourceURL=webpack:///./src/sounds/chimes.wav?");
+
+/***/ }),
+
+/***/ "./src/sounds/gong.wav":
+/*!*****************************!*\
+  !*** ./src/sounds/gong.wav ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"./dist/sounds/gong.wav\");\n\n//# sourceURL=webpack:///./src/sounds/gong.wav?");
+
+/***/ }),
+
+/***/ "./src/sounds/wind.wav":
+/*!*****************************!*\
+  !*** ./src/sounds/wind.wav ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"./dist/sounds/wind.wav\");\n\n//# sourceURL=webpack:///./src/sounds/wind.wav?");
+
+/***/ }),
+
 /***/ "./src/upepo.js":
 /*!**********************!*\
   !*** ./src/upepo.js ***!
@@ -3894,7 +3978,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_scripts_sound__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/scripts/sound */ \"./src/scripts/sound.js\");\n/* harmony import */ var _src_scripts_video__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/scripts/video */ \"./src/scripts/video.js\");\n// any javascript code imported here will be bundled into bundle.js by Webpack\n\n // gains accesss to user's webcam\n\nvar constraints = {\n  audio: false,\n  video: {\n    facingMode: \"user\"\n  }\n};\nnavigator.mediaDevices.getUserMedia(constraints).then(function (stream) {\n  var webcam = document.getElementById('webcam');\n  webcam.srcObject = stream;\n\n  webcam.onloadedmetadata = function (e) {\n    // begin motion detection \n    startMotionDetection();\n  };\n})[\"catch\"](function (err) {\n  console.log(\"Uh-oh! Looks like something went wrong.\");\n  console.log(err);\n});\n\nfunction startMotionDetection() {\n  update();\n} // creates animations for canvas webcam 'drawings'\n\n\nwindow.requestAnimFrame = function () {\n  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {\n    window.setTimeout(callback, 1000 / 60);\n  };\n}(); // sets currently selected instrument on icon click\n\n\nwindow.currentInstrument = 'bowl';\nArray.from(document.getElementsByClassName('instrument-icon')).forEach(function (instrument) {\n  // debugger\n  instrument.addEventListener('click', function (e) {\n    window.currentInstrument = e.target.id;\n    document.getElementById(\"test-area\").innerHTML = \"<img id=\".concat(window.currentInstrument, \" class=\\\"instrument-icon\\\" src=\\\"dist/images/\").concat(window.currentInstrument, \".png\\\" alt=\\\"bowl icon\\\">\");\n  });\n}); // runs following functions in a continual loop as long as webcam is active\n\nfunction update() {\n  _src_scripts_video__WEBPACK_IMPORTED_MODULE_1__[\"drawVideo\"]();\n  _src_scripts_video__WEBPACK_IMPORTED_MODULE_1__[\"blend\"]();\n  _src_scripts_video__WEBPACK_IMPORTED_MODULE_1__[\"checkArea\"]();\n  requestAnimFrame(update);\n}\n\nwindow.onload = function () {\n  // get modal element\n  var modal = document.getElementById('modal'); // get close button\n\n  var closeBtn = document.getElementById('closeBtn'); // get open button\n\n  var instructionBtn = document.getElementById('instructionBtn');\n  closeBtn.addEventListener('click', closeModal);\n  instructionBtn.addEventListener('click', openModal);\n\n  function closeModal() {\n    modal.style.display = 'none';\n  }\n\n  function openModal() {\n    modal.style.display = 'block';\n  }\n};\n\n//# sourceURL=webpack:///./src/upepo.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_scripts_sound__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/scripts/sound */ \"./src/scripts/sound.js\");\n/* harmony import */ var _images_bowl_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/bowl.png */ \"./src/images/bowl.png\");\n/* harmony import */ var _images_chimes_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/chimes.png */ \"./src/images/chimes.png\");\n/* harmony import */ var _images_gong_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images/gong.png */ \"./src/images/gong.png\");\n/* harmony import */ var _sounds_wind_wav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sounds/wind.wav */ \"./src/sounds/wind.wav\");\n/* harmony import */ var _src_scripts_video__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/scripts/video */ \"./src/scripts/video.js\");\n// any javascript code imported here will be bundled into bundle.js by Webpack\n\n\n\n\n\n\n\n\n\nvar icons = {\n  'bowl': _images_bowl_png__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  'chimes': _images_chimes_png__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  'gong': _images_gong_png__WEBPACK_IMPORTED_MODULE_3__[\"default\"]\n}; // gains accesss to user's webcam\n\nvar constraints = {\n  audio: false,\n  video: {\n    facingMode: \"user\"\n  }\n};\nnavigator.mediaDevices.getUserMedia(constraints).then(function (stream) {\n  var webcam = document.getElementById('webcam');\n  webcam.srcObject = stream;\n\n  webcam.onloadedmetadata = function (e) {\n    // begin motion detection \n    startMotionDetection();\n  };\n})[\"catch\"](function (err) {\n  console.log(\"Uh-oh! Looks like something went wrong.\");\n  console.log(err);\n});\n\nfunction startMotionDetection() {\n  update();\n} // creates animations for canvas webcam 'drawings'\n\n\nwindow.requestAnimFrame = function () {\n  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {\n    window.setTimeout(callback, 1000 / 60);\n  };\n}(); // sets currently selected instrument on icon click\n\n\nwindow.currentInstrument = 'bowl';\nArray.from(document.getElementsByClassName('instrument-icon')).forEach(function (instrument) {\n  // debugger\n  instrument.addEventListener('click', function (e) {\n    window.currentInstrument = e.target.id;\n    document.getElementById(\"test-area\").innerHTML = \"<img id=\".concat(window.currentInstrument, \" class=\\\"instrument-icon\\\" src=\").concat(icons[window.currentInstrument], \" alt=\").concat(window.currentInstrument, \">\");\n  });\n}); // runs following functions in a continual loop as long as webcam is active\n\nfunction update() {\n  _src_scripts_video__WEBPACK_IMPORTED_MODULE_5__[\"drawVideo\"]();\n  _src_scripts_video__WEBPACK_IMPORTED_MODULE_5__[\"blend\"]();\n  _src_scripts_video__WEBPACK_IMPORTED_MODULE_5__[\"checkArea\"]();\n  requestAnimFrame(update);\n}\n\nwindow.onload = function () {\n  // get modal element\n  var modal = document.getElementById('modal'); // get close button\n\n  var closeBtn = document.getElementById('closeBtn'); // get open button\n\n  var instructionBtn = document.getElementById('instructionBtn');\n  closeBtn.addEventListener('click', closeModal);\n  instructionBtn.addEventListener('click', openModal);\n\n  function closeModal() {\n    modal.style.display = 'none';\n  }\n\n  function openModal() {\n    modal.style.display = 'block';\n  }\n};\n\n//# sourceURL=webpack:///./src/upepo.js?");
 
 /***/ }),
 
