@@ -22,7 +22,7 @@
   "homepage": "https://isaac-owens.github.io/upepo/",
   "dependencies": {
     "@babel/core": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",   
+    "@babel/preset-env": "^7.10.3",
     "babel-loader": "^8.1.0",
     "babel-polyfill": "^6.26.0",
     "file-loader": "^6.0.0",
