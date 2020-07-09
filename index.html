@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/bc9c62a0c1.js" crossorigin="anonymous"></script>  
+  <link rel="stylesheet" href="./dist/css/style.css">
+  <link rel="icon" href="data:;base64,=">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <title>UPEPO</title>
+</head>
+<body>
+  <main class="app">
+
+    <div class="sidebar">
+      <img id="bowl" class="instrument-icon" src="./dist/images/bowl.png" alt="bowl icon">
+      <img id="chimes" class="instrument-icon" src="./dist/images/chimes.png" alt="chimes icon">
+      <img id="gong" class="instrument-icon" src="./dist/images/gong.png" alt=" gong icon">
+    </div>
+
+    <div class="motion-detection">
+      <!-- autoplay keeps the video from pausing on the first frame received -->
+      <video id="webcam" autoplay playsinline width="640" height="480"></video>
+      <!-- draws the stream received so it can be used for motion detection -->
+      <canvas id="canvas-source" width="640" height="480"></canvas>
+      <canvas id="canvas-blended" width="640" height="480"></canvas>
+      <div id="test-area">
+        <img id="bowl" class="instrument-icon" src="./dist/images/bowl.png" alt="bowl icon">
+      </div>
+      <div class="header-container">
+        <div class="audio-controls">
+          <!-- background audio file (.ogg) -->
+          <audio id="background-audio" src="./dist/sounds/wind.wav"></audio>
+            <!-- Play/Pause button for background audio -->
+          <button id="play-button" class="play-button" data-playing="false" role="switch" aria-checked="false">
+            <i class="fas fa-play"></i>
+          </button>
+          <!-- controls volume of background music -->
+          <input type="range" id="volume" min="0" max="4" value="1" step="0.01">
+        </div>
+        <div>
+          <button id="instructionBtn" class="instructionBtn">Instructions</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span 
+        id="closeBtn" class="closeBtn">&times;</span>
+        <h1 class="modal-header">Welcome to UPEPO!</h1>
+        <div class="modal-body">
+          Upepo is a sound therapy app that lets you play virtual instruments with just your webcam and hands!  
+          <ol>How to use UPEPO:</ol>
+            <li>Turn webcam access on</li>
+            <li>Select an instrument in the sidebar by clicking on it (Your selected instrument will appear in the orange circle)</li>
+            <li>Wave your hand in the orange circle to play the instrument!</li>
+        </div>
+        <footer class="modal-footer">You can also turn on background sound by clicking the play button in the top left corner, and access these instructions again by clicking the INSTRUCTIONS button in the top right corner.  Relax and enjoy!</footer>
+      </div>
+    </div>
+  </main>
+  <script src="./dist/bundle.js"></script>
+</body>
+</html>

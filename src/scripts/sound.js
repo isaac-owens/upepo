@@ -1,3 +1,13 @@
+import bowlSound from '../sounds/bowl.wav';
+import chimesSound from '../sounds/chimes.wav';
+import gongSound from '../sounds/gong.wav';
+
+const instruments = {
+  bowl: bowlSound,
+  chimes: chimesSound,
+  gong: gongSound,
+};
+
 export const AudioContext = window.AudioContext || window.webkitAudioContext
 export const audioCtx = new AudioContext();
 
@@ -10,7 +20,8 @@ export async function getFile(audioContext, filepath) {
 }
 
 export async function setupSample(instrument) {
-  const filePath = `../../sounds/${instrument}.wav`;
+  // const filePath = bowl;
+  const filePath = instruments[instrument];
   const sample = await getFile(audioCtx, filePath);
   return sample;
 }
