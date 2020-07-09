@@ -2,7 +2,7 @@ module.exports = {
   entry: ['babel-polyfill', './src/upepo.js'],
   output: {
     path: __dirname + '/dist',
-    publicPath: '/',
+    publicPath: '/dist/', 
     filename: 'bundle.js'
   },
   module: {
@@ -11,6 +11,16 @@ module.exports = {
         test: /\.(js)$/, 
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.(wav)$/, 
+        exclude: /node_modules/,
+        use: ['file-loader']
+      },
+      {
+        test: /\.(png)$/, 
+        exclude: /node_modules/,
+        use: ['file-loader']
       }
     ]
   },
@@ -18,6 +28,6 @@ module.exports = {
     extensions: ['.js', '*']
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: '.'
   }
 };
