@@ -175,6 +175,10 @@ body {
   text-decoration: none;
   cursor: pointer; }
 
+.byline {
+  padding: 1.23em 1.23em;
+}
+
 input[type=range] {
   -webkit-appearance: none;
   /* Hides the slider so that custom slider can be made */
@@ -210,9 +214,10 @@ input[type=range]::-webkit-slider-thumb {
   background: orange;
   cursor: pointer;
   margin-top: -10px;
+
   /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  /* Add cool effects to your sliders! */ }
+}
 
 /* All the same stuff for Firefox */
 input[type=range]::-moz-range-thumb {
