@@ -155,6 +155,7 @@ body {
   margin: 5px; }
 
 .instructionBtn {
+  width: 110px;
   background-color: orange;
   padding: 12px;
   color: black; }
