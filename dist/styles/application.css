@@ -65,6 +65,17 @@ body {
 .volume {
   color: white; }
 
+.buttons-container {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.social-icon {
+  font-size: 20px;
+}
+
 #webcam {
   display: flex;
   flex-direction: column;
