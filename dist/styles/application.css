@@ -2,7 +2,8 @@ html, body {
   min-height: 100%; }
 
 body {
-  height: 100vh; }
+  height: 100vh; 
+}
 
 .app {
   box-sizing: border-box;
@@ -34,11 +35,13 @@ body {
   height: 160px;
   width: 160px;
   box-shadow: 0 0 60px 30px #fff, 0 0 100px 60px #f0f, 0 0 140px 90px #0ff;
-  /* outer cyan */ }
+  /* outer cyan */ 
+}
 
 .motion-detection {
   position: relative;
-  width: 80%; }
+  width: 80%; 
+}
 
 .header-container {
   width: 100%;
@@ -48,12 +51,15 @@ body {
   flex-direction: row;
   justify-content: space-between;
   z-index: 100;
-  padding: 20px; }
+  padding: 20px; 
+}
 
 .audio-controls {
+  height: 10%;
   display: flex;
   flex-direction: row;
-  align-items: center; }
+  align-items: center; 
+}
 
 .play-button {
   background-color: orange;
@@ -176,6 +182,7 @@ body {
   cursor: pointer; }
 
 .byline {
+  /* position: absolute; */
   padding: 1.23em 1.23em;
 }
 
