@@ -18,6 +18,16 @@ Add some soothing wind sounds by pressing the play button in the top right corne
 
 ![](dist/images/snippets/upepo_step_three.gif)
 
+# Technologies
+
+## Libraries:
+
+- Web Audio API
+- MediaDevices
+
+## Node Packages:
+
+- 
 
 # Challenges 
 
