@@ -1,6 +1,10 @@
 # Welcome to upepo! ![](dist/images/bowl.png)
 An interactive meditation app
 
+Upepo is a motion detection app that let's you use soundtherapy instruments with nothing but you webcam!  
+
+Step one: Choose an instrument in the side panel
+![](dist/images/snippets/upepo_step_one.gif)
 challenges 
 
 - getting an error I never saw before, keeping audio buffer from working
