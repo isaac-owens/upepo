@@ -19,8 +19,8 @@ export async function getFile(audioContext, filepath) {
   return audioBuffer;
 }
 
+// creates audio loaded sample from current instrument
 export async function setupSample(instrument) {
-  // const filePath = bowl;
   const filePath = instruments[instrument];
   const sample = await getFile(audioCtx, filePath);
   return sample;

@@ -22,22 +22,30 @@ Add some soothing wind sounds by pressing the play button in the top right corne
 
 ## Libraries:
 
-- Web Audio API
-- MediaDevices
+- `Web Audio API`
+- `MediaDevices`
 
 ## Node Packages:
 
-- 
+- `Node Sass`
 
 # Challenges 
 
-## Diffing algorithm:
+## Diff Algorithm:
 
-In order to get upepo's webcam motion detection working I had to learn a lot about diffing algorithms.  A lot.
+In order to get upepo's webcam motion detection working I had to learn a lot about diff algorithms.  A lot.
 
-This is the code that actually finds the difference in pixel values of frames withing the orange circle and triggers the sound.
+This is the code that actually finds the difference in pixel values of frames within the orange circle and triggers the sound.
+
 ![](dist/images/snippets/diffing_algo.png)
 
 ## Sound buffering
 
+Through the use of `Web Audio` Web API and a dynamic event listener callback I was able to load the appropriate sound associated with the instrument selected from the side panel.  When a user clicks on an instrument, a window variable `window.currentInstrument` is updated, which in turn updates an `<img>` elements's src attribute.
+
+![](dist/images/snippets/upepo_current_instr.png)
+
+Once that src attribute is updated, `window.currentInstrument` is passed to the setupSample function which creates the new Audio Context and returns the buffered sample ready to be manipulated in other functions (i.e. playSample, stopSample, etc)
+
+![](dist/images/snippets/upepo_sample.png)
 
