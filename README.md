@@ -25,10 +25,9 @@ Add some soothing wind sounds by pressing the play button in the top right corne
 
 In order to get upepo's webcam motion detection working I had to learn a lot about diffing algorithms.  A lot.
 
+This is the code that actually finds the difference in pixel values of frames withing the orange circle and triggers the sound.
+![](dist/images/snippets/diffing_algo.png)
 
-- getting an error I never saw before, keeping audio buffer from working
-- researched and found out what a polyfill is
-- plugged in the polyfill and got the audio to load
+## Sound buffering
 
-![](dist/images/snippets/runtime_error.png)
-![](dist/images/snippets/runtime_error_solution.png)
+
