@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='icon' href='/dist/images/favicon.ico' type='image/x-icon' />
   <script src="https://kit.fontawesome.com/bc9c62a0c1.js" crossorigin="anonymous"></script>  
   <link rel="stylesheet" href="./dist/styles/application.css">
   <link rel="icon" href="data:;base64,=">
@@ -38,9 +39,12 @@
           <!-- controls volume of background music -->
           <input type="range" id="volume" min="0" max="4" value="1" step="0.01">
         </div>
-        <div>
+        <div class="buttons-container">
           <button id="instructionBtn" class="instructionBtn">Instructions</button>
-          <button id="socialBtn" class="instructionBtn">Social</button>
+          <a href="https://angel.co/u/isaac-owens" target="_blank"><button id="socialBtn" class="instructionBtn"><i class="fab fa-angellist social-icon"></i> Angel List</button></a>
+          <a href="https://www.github.com/isaac-owens" target="_blank"><button class="instructionBtn"><i class="fab fa-github social-icon"></i> Github</button></a>
+          <a href="https://www.linkedin.com/in/isaac-owens-3a279532/" target="_blank"><button class="instructionBtn"><i class="fab fa-linkedin social-icon"></i> LinkedIn</button></a>
+          <a href="https://www.isaac-owens.com/" target="_blank"><button class="instructionBtn"><i class="fas fa-globe-africa social-icon"></i> Portfolio</button></a>
         </div>
       </div>
     </div>
@@ -61,6 +65,7 @@
       </div>
     </div>
   </main>
+  <footer class="byline">Created by Isaac Owens 2020 &copy;</footer>
   <script src="./dist/bundle.js"></script>
 </body>
 </html>
