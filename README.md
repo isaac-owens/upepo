@@ -19,7 +19,12 @@ Add some soothing wind sounds by pressing the play button in the top right corne
 ![](dist/images/snippets/upepo_step_three.gif)
 
 
-Challenges 
+# Challenges 
+
+## Diffing algorithm:
+
+In order to get upepo's webcam motion detection working I had to learn a lot about diffing algorithms.  A lot.
+
 
 - getting an error I never saw before, keeping audio buffer from working
 - researched and found out what a polyfill is
