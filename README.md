@@ -5,7 +5,11 @@ Upepo is a motion detection app that let's you use soundtherapy instruments with
 
 Step one: Choose an instrument in the side panel
 ![](dist/images/snippets/upepo_step_one.gif)
-challenges 
+
+Step two: Wave your hand in the orange circle and hear the instrument play!
+![](dist/images/snippets/upepo_step_two.gif)
+
+Challenges 
 
 - getting an error I never saw before, keeping audio buffer from working
 - researched and found out what a polyfill is
