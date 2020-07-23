@@ -1,5 +1,4 @@
 // any javascript code imported here will be bundled into bundle.js by Webpack
-import * as sound from '../src/scripts/sound';
 
 import './images/bowl.png';
 import './images/chimes.png';
@@ -17,6 +16,7 @@ const icons = {
   'chimes': chimesImage,
   'gong': gongImage,
 }
+
 // gains accesss to user's webcam
 var constraints = { audio: false, video: { facingMode: "user" } };
 navigator.mediaDevices.getUserMedia(constraints)

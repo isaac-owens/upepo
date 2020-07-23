@@ -64,13 +64,6 @@ export function checkArea() {
 
   window.testArea = testArea;
 
-  // testArea = {
-  //   x: 100,
-  //   y: 100,
-  //   width: 130,
-  //   height: 130
-  // }
-
   let blendedData = contextBlended.getImageData(
     testArea.x,
     testArea.y,
@@ -98,8 +91,9 @@ export function checkArea() {
   window.average = average;
 
   if (average > 10) {
-    // over the limit means that a movement is detected
+    // if average is over the threshold movement has happened
     sound.setupSample(window.currentInstrument).then((sample) => {
+      // load and play current instrument's sample
       sound.playSample(sound.audioCtx, sample);
     });
   }
