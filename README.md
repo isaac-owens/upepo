@@ -1,4 +1,4 @@
-# upepo
+# Welcome to upepo! ![](dist/images/bowl.png)
 An interactive meditation app
 
 challenges 
