@@ -161,10 +161,12 @@ body {
   margin: 5px; }
 
 .instructionBtn {
-  width: 110px;
+  width: 140px;
   background-color: orange;
   padding: 12px;
   color: black; 
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .instructionBtn:visited {
