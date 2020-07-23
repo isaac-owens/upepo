@@ -1,5 +1,4 @@
-# Welcome to upepo! ![](dist/images/bowl.png)
-An interactive meditation app
+# Welcome to upepo! <img src="dist/images/bowl.png" height="30px">
 
 Upepo is a motion detection app that let's you use soundtherapy instruments with nothing but you webcam!  
 
