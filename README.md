@@ -66,7 +66,19 @@ Simply put, this is the code that actually finds the difference in pixel values 
 
 Through the use of `Web Audio` Web API and a dynamic event listener callback I was able to load the appropriate sound associated with the instrument selected from the side panel.  When a user clicks on an instrument, a window variable `window.currentInstrument` is updated, which in turn updates an `<img>` elements's src attribute within the orange circle.
 
-![](dist/images/snippets/upepo_current_instr.png)
+```javascript
+// sets currently selected instrument on icon click
+  window.currentInstrument = 'bowl';
+
+  Array.from(document.getElementsByClassName('instrument-icon')).forEach(instrument => {
+    // debugger
+    instrument.addEventListener('click', (e) => {
+      window.currentInstrument = e.target.id;
+      document.getElementById("test-area").innerHTML =
+        `<img id=${window.currentInstrument} class="instrument-icon" src=${icons[window.currentInstrument]} alt=${window.currentInstrument}>`;
+    })
+  })
+```
 
 Once that src attribute is updated, `window.currentInstrument` is passed to the setupSample function which creates the new Audio Context and returns the buffered sample ready to be manipulated in other functions (i.e. playSample, stopSample, etc)
 
