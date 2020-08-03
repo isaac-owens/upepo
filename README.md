@@ -46,7 +46,21 @@ In order to get upepo's webcam motion detection functioning I had to learn a lot
 
 Simply put, this is the code that actually finds the difference in pixel values of video frames within the orange circle and triggers the sound.
 
-![](dist/images/snippets/diffing_algo.png)
+```javascript
+// calculate average of test area color values
+  average = Math.round(average / (blendedData.data.length * 0.25));
+  window.blendedData = blendedData;
+  window.average = average;
+
+  if (average > 10) {
+    // if average is over the threshold movement has happened
+    sound.setupSample(window.currentInstrument).then((sample) => {
+      // load and play current instrument's sample
+      sound.playSample(sound.audioCtx, sample);
+    });
+  }
+}
+```
 
 ## Sound buffering
 
