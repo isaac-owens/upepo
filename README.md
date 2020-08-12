@@ -91,7 +91,7 @@ export async function setupSample(instrument) {
 }
 ```
 
-## I really hope you enjoy upepo and that it can bring you piece, joy, and fun in your meditations, on your breaks, and any other way you see fit to use it!
+## I really hope you enjoy upepo and that it can bring you peace, joy, and fun in your meditations, on your breaks, and any other way you see fit to use it!
 
 Created by Isaac Owens 2020 &#169;
 
