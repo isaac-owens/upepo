@@ -48,9 +48,8 @@ export function blend() {
 }
 
 export function checkArea() {
-  // still need to define properties of test area
   const test = document.getElementById("test-area");
-  window.test = test;
+  // window.test = test;
 
   let rect = test.getClientRects();
 
@@ -61,7 +60,7 @@ export function checkArea() {
     height: test.clientHeight,
   };
 
-  window.testArea = testArea;
+  // window.testArea = testArea;
 
   let blendedData = contextBlended.getImageData(
     testArea.x,
@@ -86,11 +85,12 @@ export function checkArea() {
 
   // calculate average of test area color values
   average = Math.round(average / (blendedData.data.length * 0.25));
-  window.blendedData = blendedData;
-  window.average = average;
+  // window.blendedData = blendedData;
+  // window.average = average;
 
+  // This is where the magic happens
   if (average > 10) {
-    // if average is over the threshold movement has happened
+    // if average is over the threshold (10) movement has happened
     sound.setupSample(window.currentInstrument).then((sample) => {
       // load and play current instrument's sample
       sound.playSample(sound.audioCtx, sample);
