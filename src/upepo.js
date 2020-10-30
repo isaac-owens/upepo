@@ -47,15 +47,13 @@ window.requestAnimFrame = (function () {
     window.msRequestAnimationFrame ||
     function (callback) {
       window.setTimeout(callback, 1000 / 60);
-    }
-    );
+    });
   })();
   
   // sets currently selected instrument on icon click
   window.currentInstrument = 'bowl';
 
   Array.from(document.getElementsByClassName('instrument-icon')).forEach(instrument => {
-    // debugger
     instrument.addEventListener('click', (e) => {
       window.currentInstrument = e.target.id;
       document.getElementById("test-area").innerHTML =
