@@ -10,16 +10,16 @@ import {
 
 let lastImageData;
 
-// render reversed video for mirror effect
+// render reversed webcam feed for mirror effect
 contextSource.translate(canvasSource.width, 0);
 contextSource.scale(-1, 1);
 
-
+// displays the reversed webcam feed
 export function drawVideo() {
   contextSource.drawImage(webcam, 0, 0, webcam.width, webcam.height);
 }
 
-
+// 
 export function blend() {
   let canvasWidth = canvasSource.width;
   let canvasHeight = canvasSource.height;
@@ -30,14 +30,14 @@ export function blend() {
   // for specified rectangle of canvas context
   let sourceData = contextSource.getImageData(0, 0, canvasWidth, canvasHeight);
 
-  // creates an image if no previous image exists (i.e. first frame of stream)
+  // creates an image if no previous image exists (i.e. first frame of drawn video stream)
   if (!lastImageData)
     lastImageData = contextSource.getImageData(0, 0, canvasWidth, canvasHeight);
 
-  // create ImageData instance to get blended result
+  // .createImageData creates ImageData instance for blended result
   let blendedData = contextSource.createImageData(canvasWidth, canvasHeight);
 
-  // blend the images
+  // blend the images (source is current frame, lastImage is prev frame)
   VideoUTIL.difference(blendedData.data, sourceData.data, lastImageData.data);
 
   // draw the result of the blend
