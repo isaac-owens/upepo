@@ -1,6 +1,6 @@
 # Welcome to upepo! <img src="dist/images/bowl.png" height="30px">
 
-Upepo is a motion detection app that let's you play soundtherapy instruments with nothing but your webcam!  
+[Upepo](https://www.github.io.isaac-owens/upepo) is a motion detection app that let's you play soundtherapy instruments with nothing but your webcam!  
 
 ## Step one: 
 Choose an instrument from the side panel 
