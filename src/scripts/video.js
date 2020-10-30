@@ -49,7 +49,6 @@ export function blend() {
 
 export function checkArea() {
   const test = document.getElementById("test-area");
-  // window.test = test;
 
   let rect = test.getClientRects();
 
@@ -59,8 +58,6 @@ export function checkArea() {
     width: test.clientWidth,
     height: test.clientHeight,
   };
-
-  // window.testArea = testArea;
 
   let blendedData = contextBlended.getImageData(
     testArea.x,
@@ -88,7 +85,7 @@ export function checkArea() {
   // window.blendedData = blendedData;
   // window.average = average;
 
-  // This is where the magic happens
+  // THIS IS WHERE THE MAGIC HAPPPENS!
   if (average > 10) {
     // if average is over the threshold (10) movement has happened
     sound.setupSample(window.currentInstrument).then((sample) => {

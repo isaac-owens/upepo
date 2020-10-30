@@ -1,5 +1,3 @@
-// any javascript code imported here will be bundled into bundle.js by Webpack
-
 import './images/bowl.png';
 import './images/chimes.png';
 import './images/gong.png';
@@ -17,7 +15,7 @@ const icons = {
   'gong': gongImage,
 }
 
-// gains accesss to user's webcam
+// gains accesss to user's webcam with permission
 var constraints = { audio: false, video: { facingMode: "user" } };
 navigator.mediaDevices.getUserMedia(constraints)
 .then(function(stream) {
@@ -54,6 +52,7 @@ window.requestAnimFrame = (function () {
   window.currentInstrument = 'bowl';
 
   Array.from(document.getElementsByClassName('instrument-icon')).forEach(instrument => {
+    // updates the image and sound file of whatever instrument you click on
     instrument.addEventListener('click', (e) => {
       window.currentInstrument = e.target.id;
       document.getElementById("test-area").innerHTML =
@@ -69,6 +68,7 @@ window.requestAnimFrame = (function () {
     requestAnimFrame(update);
   }
 
+  // displays the instruction modal when the window loads
   window.onload = function() {
     // get modal element
     const modal = document.getElementById('modal');
@@ -79,8 +79,8 @@ window.requestAnimFrame = (function () {
     // get open button
     const instructionBtn = document.getElementById('instructionBtn');
   
+    // functionality for opening and closing the modal
     closeBtn.addEventListener('click', closeModal)
-
     instructionBtn.addEventListener('click', openModal);
   
   function closeModal() {
