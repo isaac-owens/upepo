@@ -5,11 +5,10 @@ import {
   webcam, 
   canvasSource,
   contextSource,
-  canvasBlended,
   contextBlended,
 } from "./canvas";
 
-let timeOut, lastImageData;
+let lastImageData;
 
 // render reversed video for mirror effect
 contextSource.translate(canvasSource.width, 0);
